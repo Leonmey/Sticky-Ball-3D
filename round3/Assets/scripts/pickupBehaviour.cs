@@ -19,7 +19,6 @@ public class pickupBehaviour : MonoBehaviour {
             player = other.gameObject.GetComponent<PlayerController>();
             player.SizeValue = sizeValue;
 
-
             //gameObject.GetComponent<Collider>().enabled = false;
         }
         else if(gameObject.CompareTag("resetSize") && other.gameObject.CompareTag("Player"))
@@ -28,6 +27,13 @@ public class pickupBehaviour : MonoBehaviour {
             player.removeChildren();
             Destroy(gameObject);
             player.SizeValue = -player.SizeValue;
+        }
+        else if (gameObject.CompareTag("levelDown") && other.gameObject.CompareTag("Player"))
+        {
+            player = other.gameObject.GetComponent<PlayerController>();
+            player.removeChildren();
+            Destroy(gameObject);
+            player.shrink();
         }
     }
 

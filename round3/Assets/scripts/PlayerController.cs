@@ -43,6 +43,12 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void shrink()
+    {
+        transform.localScale = transform.localScale * (float)0.75;
+        sizeValue = 0;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
