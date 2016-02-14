@@ -31,6 +31,7 @@ public class pickupBehaviour : MonoBehaviour {
         else if (gameObject.CompareTag("levelDown") && other.gameObject.CompareTag("Player"))
         {
             player = other.gameObject.GetComponent<PlayerController>();
+            other.gameObject.GetComponent<Rigidbody>().mass = other.gameObject.GetComponent<Rigidbody>().mass * 0.75f;
             player.removeChildren();
             Destroy(gameObject);
             player.shrink();
