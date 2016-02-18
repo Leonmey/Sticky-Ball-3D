@@ -38,6 +38,8 @@ public class MeshGenerator : MonoBehaviour {
         mesh.triangles = triangles.ToArray();
         mesh.RecalculateNormals();
 
+
+
         CreateWallMesh();
     }
 
@@ -72,6 +74,9 @@ public class MeshGenerator : MonoBehaviour {
         wallMesh.vertices = wallVertices.ToArray();
         wallMesh.triangles = wallTriangles.ToArray();
         walls.mesh = wallMesh;
+
+        MeshCollider wallCollider = walls.gameObject.GetComponent<MeshCollider>();
+        wallCollider.sharedMesh = wallMesh;
 
     }
 
